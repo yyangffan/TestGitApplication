@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yf.testgitapplication.activity.ColudActivity">
+
+    <com.example.yf.testgitapplication.views.MyNestedScrollView
+        android:id="@+id/mns_base"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--内容布局头-->
+            <include
+                layout="@layout/header_book_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+            <!--<RelativeLayout-->
+            <!--android:id="@+id/header_container"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+            <!--内容-->
+            <include
+                layout="@layout/activity_book_detail"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                />
+
+            <!--<RelativeLayout-->
+            <!--android:id="@+id/container"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1">-->
+
+            <!--&lt;!&ndash;加载失败&ndash;&gt;-->
+            <!--<ViewStub-->
+            <!--android:id="@+id/vs_error_refresh"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout="@layout/layout_loading_error"/>-->
+
+            <!--&lt;!&ndash;加载中..&ndash;&gt;-->
+            <!--<ViewStub-->
+            <!--android:id="@+id/vs_loading"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout="@layout/layout_loading_view"/>-->
+
+            <!--</RelativeLayout>-->
+
+        </LinearLayout>
+    </com.example.yf.testgitapplication.views.MyNestedScrollView>
+
+
+    <!--标题-->
+
+    <include
+        layout="@layout/base_header_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/title_container"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"/>-->
+</FrameLayout>
