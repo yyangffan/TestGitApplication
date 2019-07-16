@@ -37,7 +37,7 @@ public class PrintUtil {
 
     private PrintUtil(Context context) {
         mContext = context;
-        mService = new BluetoothService(context, mHandler);
+        mService = new BluetoothService(context.getApplicationContext(), mHandler);
         PrintUtils.setService(mService);
         PrintUtils.setLineByteSize(context);
     }
@@ -140,6 +140,19 @@ public class PrintUtil {
         PrintUtils.printText("**HealthOnly轻食店**");
         PrintUtils.printText("银联小二外卖超“惠”吃，云闪付随机立减");
         PrintUtils.printText("\n\n\n");
+        /*--------------------------*/
+        PrintUtils.selectCommand(PrintUtils.NORMAL);
+//        PrintUtils.selectCommand(PrintUtils.ALIGN_CENTER);
+        PrintUtils.printText(PrintUtils.printLine("--","商品名称","--\n",true));
+        PrintUtils.selectCommand(PrintUtils.BOLD_CANCEL);
+        PrintUtils.printText(PrintUtils.printThreeData("面", "1", "0.00"));
+        PrintUtils.selectCommand(PrintUtils.NORMAL);
+        PrintUtils.selectCommand(PrintUtils.ALIGN_CENTER);
+        PrintUtils.printText(PrintUtils.printTwoData("", "原价82.50"));
+        PrintUtils.selectCommand(PrintUtils.NORMAL);
+        PrintUtils.selectCommand(PrintUtils.ALIGN_CENTER);
+        PrintUtils.printText(PrintUtils.printTwoData("用户在线支付", "42.459"));
+        PrintUtils.printText(PrintUtils.printLine("--","--","--",true));
     }
 
     //打印图形

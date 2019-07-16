@@ -38,6 +38,6 @@ dependencies {
     implementation files('libs/btsdk.jar')
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-31'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-31'
-    implementation 'com.jakewharton:butterknife:10.1.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+    implementation 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 }

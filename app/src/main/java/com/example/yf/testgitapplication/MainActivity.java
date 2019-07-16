@@ -26,6 +26,7 @@ public class MainActivity extends BaseActivity {
     }
 
     public void initViews() {
+        init();
         mrecy = (RecyclerView) findViewById(R.id.main_recy);
         mStrings = this.getResources().getStringArray(R.array.main_go);
         mMainRecyAdapter = new MainRecyAdapter(this, mStrings, false);
