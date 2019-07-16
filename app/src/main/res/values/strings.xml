@@ -7,6 +7,7 @@
         <item>new Activity</item>
         <item>仿网易</item>
         <item>打印机</item>
+        <item>二维码扫描</item>
     </array>
     <string name="imgvv">imgvlll</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>

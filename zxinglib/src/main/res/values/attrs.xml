@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--二维码扫描-->
+    <declare-styleable name="ZxingViewFinderView">
+        <attr name="scannerBoundColor" format="color" />
+        <attr name="scannerBoundCornerColor" format="color" />
+        <attr name="scannerTipTextColor" format="color" />
+        <attr name="scannerBoundWidth" format="dimension" />
+        <attr name="scannerBoundCornerWith" format="dimension" />
+        <attr name="scannerBoundCornerHeight" format="dimension" />
+        <attr name="scannerTipTextSize" format="dimension" />
+        <attr name="scannerTipTextMargin" format="dimension" />
+
+        <attr name="pstsTabBackground" format="reference" />
+        <attr name="scannerLaserResId" format="integer" />
+        <attr name="scannerTipText" format="string" />
+        <attr name="scannerTipTextGravity" format="boolean" />
+    </declare-styleable>
+    <!--自定义键盘-->
+    <declare-styleable name="keyboard">
+        <attr name="xml" format="reference"/>
+        <attr name="randomkeys" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CommonTabLayout">
+        <attr name="tl_indicator_color"/>
+        <attr name="tl_indicator_height"/>
+        <attr name="tl_indicator_width"/>
+        <attr name="tl_indicator_margin_left"/>
+        <attr name="tl_indicator_margin_top"/>
+        <attr name="tl_indicator_margin_right"/>
+        <attr name="tl_indicator_margin_bottom"/>
+        <attr name="tl_indicator_corner_radius"/>
+        <attr name="tl_indicator_gravity"/>
+        <attr name="tl_indicator_style"/>
+        <attr name="tl_indicator_anim_enable"/>
+        <attr name="tl_indicator_anim_duration"/>
+        <attr name="tl_indicator_bounce_enable"/>
+        <attr name="tl_underline_color"/>
+        <attr name="tl_underline_height"/>
+        <attr name="tl_underline_gravity"/>
+        <attr name="tl_divider_color"/>
+        <attr name="tl_divider_width"/>
+        <attr name="tl_divider_padding"/>
+        <attr name="tl_tab_padding"/>
+        <attr name="tl_tab_space_equal"/>
+        <attr name="tl_tab_width"/>
+        <attr name="tl_textsize"/>
+        <attr name="tl_setextsize"/>
+        <attr name="tl_textSelectColor"/>
+        <attr name="tl_textUnselectColor"/>
+        <attr name="tl_textBold"/>
+        <attr name="tl_textAllCaps"/>
+        <attr name="tl_iconWidth" format="dimension"/>
+        <attr name="tl_iconHeight" format="dimension"/>
+        <attr name="tl_iconVisible" format="boolean"/>
+        <attr name="tl_iconGravity" format="enum">
+            <enum name="LEFT" value="3"/>
+            <enum name="TOP" value="48"/>
+            <enum name="RIGHT" value="5"/>
+            <enum name="BOTTOM" value="80"/>
+        </attr>
+        <attr name="tl_iconMargin" format="dimension"/>
+    </declare-styleable>
+
+
+</resources>

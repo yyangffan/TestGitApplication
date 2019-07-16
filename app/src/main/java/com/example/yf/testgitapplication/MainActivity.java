@@ -1,5 +1,6 @@
 package com.example.yf.testgitapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,8 +13,12 @@ import com.example.yf.testgitapplication.oterh.MainTActivity;
 import com.example.yf.testgitapplication.print_demo.ui.PrintActivity;
 import com.superc.yf_lib.base.BaseActivity;
 
+import qrcode.QRCodeActivity;
+
 public class MainActivity extends BaseActivity {
+
     private static final String TAG = "MainActivity";
+    public static final int ERWEIMA_CODE = 110;
     private RecyclerView mrecy;
     private MainRecyAdapter mMainRecyAdapter;
     private String[] mStrings;
@@ -57,9 +62,29 @@ public class MainActivity extends BaseActivity {
                     case 5:
                         stActivity(PrintActivity.class);
                         break;
+                    case 6:
+                        startActivityForResult(new Intent(MainActivity.this, QRCodeActivity.class), ERWEIMA_CODE);
+                        break;
                 }
             }
         });
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == -1) {
+            switch (requestCode) {
+                case ERWEIMA_CODE:
+                    ToastShow("扫描成功");
+                    if (data != null) {
+                        String result = data.getStringExtra("data");
+                        ToastShow(result);
+                        // TODO: 2019/7/11 扫描后的券码result进行后面的操作
+                    }
+                    break;
+            }
+
+        }
     }
 
     @Override

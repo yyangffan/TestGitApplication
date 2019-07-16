@@ -59,7 +59,6 @@
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="52b6b7aec996e40d8e82d75263f8aec6"/>
-
         <activity
             android:name=".MapViewActivity"
             android:screenOrientation="portrait"
@@ -75,17 +74,15 @@
             android:screenOrientation="portrait"
             android:theme="@style/MyScrollPage">
         </activity>
-        <activity android:name=".new_another.NaotherTestActivity">
-        </activity>
         <activity
             android:name=".new_another.ScrollingActivity"
             android:label="@string/title_activity_scrolling"
             android:theme="@style/MyScrollPage">
         </activity>
-        <activity android:name=".activity.ColudActivity">
-        </activity>
-        <activity android:name=".print_demo.ui.PrintActivity">
-        </activity>
+        <activity android:name=".new_another.NaotherTestActivity"/>
+        <activity android:name=".activity.ColudActivity"/>
+        <activity android:name=".print_demo.ui.PrintActivity"/>
+        <activity android:name="qrcode.QRCodeActivity"/>
     </application>
 
 </manifest>
