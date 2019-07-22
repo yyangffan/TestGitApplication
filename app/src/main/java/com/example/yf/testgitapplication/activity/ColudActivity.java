@@ -1,6 +1,5 @@
 package com.example.yf.testgitapplication.activity;
 
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,9 +15,7 @@ import android.view.animation.Interpolator;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.yf.testgitapplication.R;
 import com.example.yf.testgitapplication.tryt.StatusBarUtil;
 import com.example.yf.testgitapplication.tryt.StatusBarUtils;
@@ -29,6 +26,8 @@ import com.superc.yf_lib.base.BaseActivity;
 
 import jp.wasabeef.glide.transformations.BlurTransformation;
 
+import static com.bumptech.glide.request.RequestOptions.bitmapTransform;
+
 public class ColudActivity extends BaseActivity {
     // 滑动多少距离后标题不透明
     private int slidingDistance;
@@ -36,8 +35,8 @@ public class ColudActivity extends BaseActivity {
     private int imageBgHeight;
     // 清除动画，防止内存泄漏
     private CustomChangeBounds changeBounds;
-    private String img_url = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1" +
-            "536201446&di=d204393aebe09b6aba5b34e26cb73713&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3x6.ddimg.cn%2F37%2F30%2F1048626946-1_u_2.jpg";
+    private String img_url = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563773310601&di=65" +
+            "6e18d1db874820f07af1e8c7f31b81&imgtype=0&src=http%3A%2F%2Fwww.hopefluent.cn%2Fimg%2Fnewsuploadpic%2F201307%2F20130724054608.jpg";
 
     private Toolbar mToolbar;
     private ImageView mtitle_imgv;
@@ -49,6 +48,7 @@ public class ColudActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_colud);
+        init();
         initEver();
     }
 
@@ -67,9 +67,9 @@ public class ColudActivity extends BaseActivity {
         mtitle_imgv = (ImageView) findViewById(R.id.iv_base_titlebar_bg);
         mHeander_imgv = (ImageView) findViewById(R.id.img_item_bg);
         mdetail_imgv = (ImageView) findViewById(R.id.iv_one_photo);
-
-
-        Glide.with(this).load(img_url).error(R.drawable.computer).into(mdetail_imgv);
+        RequestOptions requestOptions=new RequestOptions();
+        requestOptions.error(R.drawable.computer).placeholder(R.drawable.computer);
+        Glide.with(this).load(img_url).apply(requestOptions).into(mdetail_imgv);
         setMotion(mdetail_imgv, true);
         initSlideShapeTheme(img_url, mHeander_imgv);
 
@@ -155,9 +155,11 @@ public class ColudActivity extends BaseActivity {
 
         mtitle_imgv.setImageAlpha(0);
         StatusBarUtils.setTranslucentImageHeader(this, 0, mToolbar);
+        RequestOptions requestOptions=new RequestOptions();
+        requestOptions.error(R.drawable.computer).placeholder(R.drawable.computer);
         Glide.with(this).load(imgUrl)
-                .error(R.mipmap.ic_launcher)
-                .bitmapTransform(new BlurTransformation(this, 23, 4)).into(mHeaderBg);
+                .apply(requestOptions)
+                .apply(bitmapTransform(new BlurTransformation(23, 4))).into(mHeaderBg);
         // 上移背景图片，使空白状态栏消失(这样下方就空了状态栏的高度)
         if (mHeaderBg != null) {
             ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) mHeaderBg.getLayoutParams();
@@ -180,23 +182,29 @@ public class ColudActivity extends BaseActivity {
     private void setImgHeaderBg(String imgUrl) {
         if (!TextUtils.isEmpty(imgUrl)) {
 
-            // 高斯模糊背景 原来 参数：12,5  23,4
-            Glide.with(this).load(imgUrl)
-                    .error(R.mipmap.ic_launcher)
-                    .bitmapTransform(new BlurTransformation(this, 23, 4)).listener(new RequestListener<String, GlideDrawable>() {
-                @Override
-                public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                    return false;
-                }
 
-                @Override
-                public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                    mToolbar.setBackgroundColor(Color.TRANSPARENT);
-                    mtitle_imgv.setImageAlpha(0);
-                    mtitle_imgv.setVisibility(View.VISIBLE);
-                    return false;
-                }
-            }).into(mtitle_imgv);
+            RequestOptions requestOptions=new RequestOptions();
+            requestOptions.error(R.drawable.computer).placeholder(R.drawable.computer);
+
+            Glide.with(this).load(imgUrl).apply(requestOptions).apply(bitmapTransform(new BlurTransformation(25, 3)))
+                    .into(mtitle_imgv);
+            // 高斯模糊背景 原来 参数：12,5  23,4
+//            Glide.with(this).load(imgUrl)
+//                    .apply(requestOptions)
+//                    .bitmapTransform(new BlurTransformation(this, 23, 4)).listener(new RequestListener<String, GlideDrawable>() {
+//                @Override
+//                public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+//                    return false;
+//                }
+//
+//                @Override
+//                public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+//                    mToolbar.setBackgroundColor(Color.TRANSPARENT);
+//                    mtitle_imgv.setImageAlpha(0);
+//                    mtitle_imgv.setVisibility(View.VISIBLE);
+//                    return false;
+//                }
+//            }).into(mtitle_imgv);
         }
     }
 

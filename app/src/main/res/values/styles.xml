@@ -54,5 +54,14 @@
         <item name="android:textSize">18.0sp</item>
         <item name="android:textColor">@color/black</item>
     </style>
+    
+    <style name="StartStyle" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/bg</item>
+    </style>
+    <!--自定义输入键盘-->
+    <style name="AnimationFade">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
 
 </resources>

@@ -8,9 +8,12 @@ import android.view.View;
 
 import com.example.yf.testgitapplication.activity.ColudActivity;
 import com.example.yf.testgitapplication.adapter.MainRecyAdapter;
+import com.example.yf.testgitapplication.input.InputActivity;
 import com.example.yf.testgitapplication.new_another.ScrollingActivity;
 import com.example.yf.testgitapplication.oterh.MainTActivity;
+import com.example.yf.testgitapplication.pop_dialog.PopDigActivity;
 import com.example.yf.testgitapplication.print_demo.ui.PrintActivity;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.superc.yf_lib.base.BaseActivity;
 
 import qrcode.QRCodeActivity;
@@ -21,6 +24,7 @@ public class MainActivity extends BaseActivity {
     public static final int ERWEIMA_CODE = 110;
     private RecyclerView mrecy;
     private MainRecyAdapter mMainRecyAdapter;
+    private SmartRefreshLayout mSmartRefreshLayout;
     private String[] mStrings;
 
     @Override
@@ -33,42 +37,35 @@ public class MainActivity extends BaseActivity {
     public void initViews() {
         init();
         mrecy = (RecyclerView) findViewById(R.id.main_recy);
+        mSmartRefreshLayout = (SmartRefreshLayout) findViewById(R.id.main_smart);
         mStrings = this.getResources().getStringArray(R.array.main_go);
         mMainRecyAdapter = new MainRecyAdapter(this, mStrings, false);
         LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         mrecy.setLayoutManager(manager);
 
+        mSmartRefreshLayout.setEnablePureScrollMode(true);//使用纯滚动模式
+        mSmartRefreshLayout.setEnableOverScrollBounce(true);//是否启用回弹
+
         mrecy.setAdapter(mMainRecyAdapter);
         mMainRecyAdapter.setOnItemClickListener(new MainRecyAdapter.OnItemClickListener() {
             @Override
             public void OnItemClickListener(int position) {
                 switch (position) {
-                    case 0:
-                        stActivity(MapViewActivity.class);
-                        break;
-                    case 1:
-                        stActivity(MainTActivity.class);
-                        break;
-                    case 2:
-                        stActivity(TestActivity.class);
-                        break;
-                    case 3:
-                        stActivity(ScrollingActivity.class);
-                        break;
-                    case 4:
-                        stActivity(ColudActivity.class);
-                        break;
-                    case 5:
-                        stActivity(PrintActivity.class);
-                        break;
-                    case 6:
-                        startActivityForResult(new Intent(MainActivity.this, QRCodeActivity.class), ERWEIMA_CODE);
-                        break;
+                    case 0: stActivity(MapViewActivity.class);break;
+                    case 1: stActivity(MainTActivity.class);break;
+                    case 2: stActivity(TestActivity.class);break;
+                    case 3: stActivity(ScrollingActivity.class);break;
+                    case 4: stActivity(ColudActivity.class);break;
+                    case 5: stActivity(PrintActivity.class);break;
+                    case 6: startActivityForResult(new Intent(MainActivity.this, QRCodeActivity.class), ERWEIMA_CODE);break;
+                    case 7: stActivity(InputActivity.class);break;
+                    case 8: stActivity(PopDigActivity.class);break;
                 }
             }
         });
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
-          package="com.example.yf.testgitapplication"
-          >
+          package="com.example.yf.testgitapplication">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <!-- 用于访问GPS定位 -->
@@ -28,19 +27,16 @@
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:appComponentFactory="myapplication"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:appComponentFactory="myapplication"
-        tools:replace="android:appComponentFactory"
-        >
+        tools:replace="android:appComponentFactory">
         <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyScrollPage"
-            android:windowSoftInputMode="adjustResize|stateHidden">
+            android:name=".WelcomeActivity"
+            android:theme="@style/StartStyle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -48,16 +44,21 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyScrollPage"
+            android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity
             android:name=".oterh.MainTActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/MyScrollPage">
-        </activity>
+            android:theme="@style/MyScrollPage"/>
         <!-- 高德定位 -->
         <service android:name="com.amap.api.location.APSService"/>
 
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="52b6b7aec996e40d8e82d75263f8aec6"/>
+
         <activity
             android:name=".MapViewActivity"
             android:screenOrientation="portrait"
@@ -66,22 +67,23 @@
         <activity
             android:name=".TestActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/MyScrollPage">
-        </activity>
+            android:theme="@style/MyScrollPage"/>
         <activity
             android:name=".new_another.TestDetailActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/MyScrollPage">
-        </activity>
+            android:theme="@style/MyScrollPage"/>
         <activity
             android:name=".new_another.ScrollingActivity"
             android:label="@string/title_activity_scrolling"
-            android:theme="@style/MyScrollPage">
-        </activity>
+            android:theme="@style/MyScrollPage"/>
         <activity android:name=".new_another.NaotherTestActivity"/>
         <activity android:name=".activity.ColudActivity"/>
         <activity android:name=".print_demo.ui.PrintActivity"/>
         <activity android:name="qrcode.QRCodeActivity"/>
+        <activity android:name=".input.InputActivity">
+        </activity>
+        <activity android:name=".pop_dialog.PopDigActivity">
+        </activity>
     </application>
 
 </manifest>
