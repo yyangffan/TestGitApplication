@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,26 +53,6 @@ public class HomeFragment extends BaseFragment {
         init();
         return view;
     }
-    /**
-     * 显示时间
-     */
-    private void DatePicker(final TextView tv) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.CHINA);
-        //获取当前时间
-        now = sdf.format(new Date());
-        //tvElectricalTime.setText(now.split(" ")[0]);
-        customDatePicker = new CustomDatePicker(this.getActivity(), new CustomDatePicker.ResultHandler() {
-            @Override
-            public void handle(String time) { // 回调接口，获得选中的时间
-                Log.d("yyyyy", time);
-                tv.setText(time.split(" ")[0]);
-
-            }
-        }, "1990-01-01 00:00", now); // 初始化日期格式请用：yyyy-MM-dd HH:mm，否则不能正常运行
-        customDatePicker.showSpecificTime(false); // 不显示时和分
-        customDatePicker.setIsLoop(false); // 不允许循环滚动
-        customDatePicker.show(tv.getText().toString());
-    }
 
     @Override
     public void init() {
@@ -99,6 +78,7 @@ public class HomeFragment extends BaseFragment {
             public void onWhatEdtClickListener(int postion, String what, String content) {
                 Map<String, Object> map = mMapList.get(postion);
                 map.put(what, content);
+                mHomeRecyAdapter.notifyDataSetChanged();
 
             }
         });
@@ -145,16 +125,15 @@ public class HomeFragment extends BaseFragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.get:
-//                StringBuilder stringBuilder = new StringBuilder();
-//                for (Map<String, Object> map : mMapList) {
-//                    String one = (String) map.get("one")+"      ";
-//                    String two = (String) map.get("two")+"      ";
-//                    String three = (String) map.get("three")+"      ";
-//                    String four = (String) map.get("four")+"      ";
-//                    stringBuilder.append(one + two + three + four + "\n");
-//                }
-//                mTvContentData.setText("获取到的数据：\n"+stringBuilder.toString());
-                DatePicker(mTvContentData);
+                StringBuilder stringBuilder = new StringBuilder();
+                for (Map<String, Object> map : mMapList) {
+                    String one = (String) map.get("one")+"      ";
+                    String two = (String) map.get("two")+"      ";
+                    String three = (String) map.get("three")+"      ";
+                    String four = (String) map.get("four")+"      ";
+                    stringBuilder.append(one + two + three + four + "\n");
+                }
+                mTvContentData.setText("获取到的数据：\n"+stringBuilder.toString());
                 break;
         }
     }
