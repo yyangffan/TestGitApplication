@@ -35,7 +35,7 @@
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
         <activity
-            android:name=".WelcomeActivity"
+            android:name=".activity.WelcomeActivity"
             android:theme="@style/StartStyle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -44,7 +44,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MyScrollPage"
             android:windowSoftInputMode="adjustResize|stateHidden"/>
@@ -60,12 +60,12 @@
             android:value="52b6b7aec996e40d8e82d75263f8aec6"/>
 
         <activity
-            android:name=".MapViewActivity"
+            android:name=".activity.MapViewActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MyScrollPage">
         </activity>
         <activity
-            android:name=".TestActivity"
+            android:name=".activity.TestActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MyScrollPage"/>
         <activity
@@ -83,6 +83,10 @@
         <activity android:name=".input.InputActivity">
         </activity>
         <activity android:name=".pop_dialog.PopDigActivity">
+        </activity>
+        <activity android:name=".all_view.AllViewActivity">
+        </activity>
+        <activity android:name=".app.ui.MainActivity">
         </activity>
     </application>
 

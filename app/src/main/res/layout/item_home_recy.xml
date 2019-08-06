@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_item">
+
+    <EditText
+        android:id="@+id/item_home_one_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_1"
+        android:background="@color/white"
+        android:gravity="center"
+        android:minWidth="@dimen/dp_70"
+        android:padding="@dimen/dp_5"
+        android:text="1.0"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:id="@+id/item_home_two_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_1"
+        android:background="@color/white"
+        android:gravity="center"
+        android:minWidth="@dimen/dp_70"
+        android:padding="@dimen/dp_5"
+        android:text="1.0"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/item_home_one_content"
+        app:layout_constraintStart_toStartOf="@+id/item_home_one_content"
+        app:layout_constraintTop_toBottomOf="@+id/item_home_one_content"/>
+
+    <EditText
+        android:id="@+id/item_home_three_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_1"
+        android:background="@color/white"
+        android:gravity="center"
+        android:minWidth="@dimen/dp_70"
+        android:padding="@dimen/dp_5"
+        android:text="1.0"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/item_home_two_content"
+        app:layout_constraintStart_toStartOf="@+id/item_home_two_content"
+        app:layout_constraintTop_toBottomOf="@+id/item_home_two_content"/>
+
+    <EditText
+        android:id="@+id/item_home_four_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_1"
+        android:background="@color/white"
+        android:gravity="center"
+        android:minWidth="@dimen/dp_70"
+        android:padding="@dimen/dp_5"
+        android:text="1.0"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/item_home_three_content"
+        app:layout_constraintStart_toStartOf="@+id/item_home_three_content"
+        app:layout_constraintTop_toBottomOf="@+id/item_home_three_content"/>
+</android.support.constraint.ConstraintLayout>

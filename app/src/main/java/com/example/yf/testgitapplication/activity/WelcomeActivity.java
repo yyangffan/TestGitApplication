@@ -1,4 +1,4 @@
-package com.example.yf.testgitapplication;
+package com.example.yf.testgitapplication.activity;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;

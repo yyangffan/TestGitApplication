@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".all_view.AllViewActivity">
+
+    <com.flyco.tablayout.CommonTabLayout
+        android:id="@+id/home_commontab"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="@dimen/dp_5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tl_iconVisible="false"
+        app:tl_indicator_color="@color/main_color"
+        app:tl_indicator_width="15dp"
+        app:tl_setextsize="16sp"
+        app:tl_textBold="BOTH"
+        app:tl_textSelectColor="@color/main_color"
+        app:tl_textUnselectColor="@color/black"
+        app:tl_textsize="12sp"/>
+
+</android.support.constraint.ConstraintLayout>

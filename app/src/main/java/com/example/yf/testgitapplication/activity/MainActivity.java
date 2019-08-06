@@ -1,21 +1,24 @@
-package com.example.yf.testgitapplication;
+package com.example.yf.testgitapplication.activity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.example.yf.testgitapplication.activity.ColudActivity;
+import com.example.yf.testgitapplication.R;
 import com.example.yf.testgitapplication.adapter.MainRecyAdapter;
 import com.example.yf.testgitapplication.input.InputActivity;
 import com.example.yf.testgitapplication.new_another.ScrollingActivity;
 import com.example.yf.testgitapplication.oterh.MainTActivity;
 import com.example.yf.testgitapplication.pop_dialog.PopDigActivity;
 import com.example.yf.testgitapplication.print_demo.ui.PrintActivity;
+import com.luck.picture.lib.permissions.RxPermissions;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.superc.yf_lib.base.BaseActivity;
 
+import io.reactivex.functions.Consumer;
 import qrcode.QRCodeActivity;
 
 public class MainActivity extends BaseActivity {
@@ -58,9 +61,26 @@ public class MainActivity extends BaseActivity {
                     case 3: stActivity(ScrollingActivity.class);break;
                     case 4: stActivity(ColudActivity.class);break;
                     case 5: stActivity(PrintActivity.class);break;
-                    case 6: startActivityForResult(new Intent(MainActivity.this, QRCodeActivity.class), ERWEIMA_CODE);break;
+                    case 6: rxPermissionTest();break;
                     case 7: stActivity(InputActivity.class);break;
                     case 8: stActivity(PopDigActivity.class);break;
+                    case 9: stActivity(com.example.yf.testgitapplication.app.ui.MainActivity.class);break;
+                }
+            }
+        });
+    }
+
+    /*请求相机权限*/
+    private void rxPermissionTest() {
+        RxPermissions rxPermissions = new RxPermissions(this);
+        rxPermissions.request(Manifest.permission.CAMERA).subscribe(new Consumer<Boolean>() {
+            @Override
+            public void accept(Boolean granted) throws Exception {
+                if (granted) {
+                    startActivityForResult(new Intent(MainActivity.this, QRCodeActivity.class), ERWEIMA_CODE);
+                } else {
+                    ToastShow("需要使用相机才能正常使用该功能");
+                    rxPermissionTest();
                 }
             }
         });

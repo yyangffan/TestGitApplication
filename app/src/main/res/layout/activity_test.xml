@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray_ee"
-    tools:context="com.example.yf.testgitapplication.TestActivity">
+    tools:context="com.example.yf.testgitapplication.activity.TestActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/test_recy"

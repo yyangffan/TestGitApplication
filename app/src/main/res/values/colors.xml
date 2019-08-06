@@ -4,5 +4,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <!--设置这个来决定库中标题栏的颜色-->
-    <color name="main_color">#7171C6</color>
+    <color name="main_color">#2E80FD</color>
+    <color name="pink">#FFB6C1</color>
 </resources>

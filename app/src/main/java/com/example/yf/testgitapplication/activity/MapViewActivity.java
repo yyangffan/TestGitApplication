@@ -1,4 +1,4 @@
-package com.example.yf.testgitapplication;
+package com.example.yf.testgitapplication.activity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.model.MyLocationStyle;
+import com.example.yf.testgitapplication.R;
 import com.superc.yf_lib.base.BaseActivity;
 import com.superc.yf_lib.utils.ToastUtil;
 

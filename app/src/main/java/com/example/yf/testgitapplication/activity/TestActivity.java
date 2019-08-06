@@ -1,4 +1,4 @@
-package com.example.yf.testgitapplication;
+package com.example.yf.testgitapplication.activity;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.yf.testgitapplication.R;
 import com.example.yf.testgitapplication.adapter.MainRecyAdapter;
 import com.superc.yf_lib.base.BaseActivity;
 
