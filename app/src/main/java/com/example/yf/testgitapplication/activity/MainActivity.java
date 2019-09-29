@@ -9,11 +9,14 @@ import android.view.View;
 
 import com.example.yf.testgitapplication.R;
 import com.example.yf.testgitapplication.adapter.MainRecyAdapter;
+import com.example.yf.testgitapplication.app.ui.guide.WelcomeActivity;
 import com.example.yf.testgitapplication.input.InputActivity;
 import com.example.yf.testgitapplication.new_another.ScrollingActivity;
 import com.example.yf.testgitapplication.oterh.MainTActivity;
 import com.example.yf.testgitapplication.pop_dialog.PopDigActivity;
+import com.example.yf.testgitapplication.print_demo.FrontPrintService;
 import com.example.yf.testgitapplication.print_demo.ui.PrintActivity;
+import com.example.yf.testgitapplication.print_demo.utils.NotificationsUtils;
 import com.luck.picture.lib.permissions.RxPermissions;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.superc.yf_lib.base.BaseActivity;
@@ -35,6 +38,11 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews();
+        if (!NotificationsUtils.isNotificationEnabled(this)) {
+            NotificationsUtils.toConfigMsg(this);
+        }else{
+            startService(new Intent(this,FrontPrintService.class));
+        }
     }
 
     public void initViews() {
@@ -64,7 +72,7 @@ public class MainActivity extends BaseActivity {
                     case 6: rxPermissionTest();break;
                     case 7: stActivity(InputActivity.class);break;
                     case 8: stActivity(PopDigActivity.class);break;
-                    case 9: stActivity(com.example.yf.testgitapplication.app.ui.MainActivity.class);break;
+                    case 9: stActivity(WelcomeActivity.class);break;
                 }
             }
         });
@@ -113,5 +121,13 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onClick(View view) {
 
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (NotificationsUtils.isNotificationEnabled(this)) {
+            startService(new Intent(this,FrontPrintService.class));
+        }
     }
 }

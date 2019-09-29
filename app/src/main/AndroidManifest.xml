@@ -23,6 +23,7 @@
     <!-- 用于申请获取蓝牙信息进行室内定位 -->
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".MyApplication"
@@ -80,14 +81,30 @@
         <activity android:name=".activity.ColudActivity"/>
         <activity android:name=".print_demo.ui.PrintActivity"/>
         <activity android:name="qrcode.QRCodeActivity"/>
-        <activity android:name=".input.InputActivity">
+        <activity android:name=".input.InputActivity"/>
+        <activity android:name=".pop_dialog.PopDigActivity"/>
+        <activity android:name=".all_view.AllViewActivity"/>
+
+        <service
+            android:name=".print_demo.FrontPrintService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+
+        <!--App-->
+        <activity android:name=".app.ui.MainActivity"
+            android:launchMode="singleTask"/>
+        <activity
+            android:name=".app.ui.guide.WelcomeActivity"
+            android:theme="@style/StartStyle">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--</intent-filter>-->
         </activity>
-        <activity android:name=".pop_dialog.PopDigActivity">
-        </activity>
-        <activity android:name=".all_view.AllViewActivity">
-        </activity>
-        <activity android:name=".app.ui.MainActivity">
-        </activity>
+
+
     </application>
 
 </manifest>

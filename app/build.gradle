@@ -17,6 +17,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    /*Layout的分类显示*/
+    sourceSets {
+        main {
+            res.srcDirs =
+                    [
+                            'src/main/res/layout/guide',
+                            'src/main/res/layout/update',
+                            'src/main/res/layout/app',
+                            'src/main/res/layout',
+                            'src/main/res'
+                    ]
+        }
+    }
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
@@ -46,4 +63,7 @@ dependencies {
     implementation project(':zxinglib')
     implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
     implementation project(':customdatepicker')
+    implementation 'com.youth.banner:banner:1.4.10'
+    //轮播图最新版本
+//    implementation project(':picture_library')
 }

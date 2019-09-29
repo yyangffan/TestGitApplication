@@ -1,1 +1,1 @@
-include ':app', ':zxinglib', ':customdatepicker'
+include ':app', ':zxinglib', ':customdatepicker', ':ucrop', ':picture_library'

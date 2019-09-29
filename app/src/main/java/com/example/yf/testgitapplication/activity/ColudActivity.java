@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.transition.ArcMotion;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
@@ -29,6 +30,7 @@ import jp.wasabeef.glide.transformations.BlurTransformation;
 import static com.bumptech.glide.request.RequestOptions.bitmapTransform;
 
 public class ColudActivity extends BaseActivity {
+    private static final String TAG = "ColudActivity";
     // 滑动多少距离后标题不透明
     private int slidingDistance;
     // 这个是高斯图背景的高度
@@ -90,16 +92,6 @@ public class ColudActivity extends BaseActivity {
                 ColudActivity.this.finish();
             }
         });
-//        mToolbar.setOnMenuItemClickListener(item -> {
-//            switch (item.getItemId()) {
-//                case R.id.actionbar_more:// 更多信息
-//                    setTitleClickMore();
-//                    break;
-//                default:
-//                    break;
-//            }
-//            return false;
-//        });
     }
 
     /**
@@ -188,23 +180,6 @@ public class ColudActivity extends BaseActivity {
 
             Glide.with(this).load(imgUrl).apply(requestOptions).apply(bitmapTransform(new BlurTransformation(25, 3)))
                     .into(mtitle_imgv);
-            // 高斯模糊背景 原来 参数：12,5  23,4
-//            Glide.with(this).load(imgUrl)
-//                    .apply(requestOptions)
-//                    .bitmapTransform(new BlurTransformation(this, 23, 4)).listener(new RequestListener<String, GlideDrawable>() {
-//                @Override
-//                public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-//                    return false;
-//                }
-//
-//                @Override
-//                public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-//                    mToolbar.setBackgroundColor(Color.TRANSPARENT);
-//                    mtitle_imgv.setImageAlpha(0);
-//                    mtitle_imgv.setVisibility(View.VISIBLE);
-//                    return false;
-//                }
-//            }).into(mtitle_imgv);
         }
     }
 
@@ -233,6 +208,7 @@ public class ColudActivity extends BaseActivity {
             scrolledY = 0;
         }
         float alpha = Math.abs(scrolledY) * 1.0f / (slidingDistance);
+        Log.e(TAG, "scrollChangeHeader: alpha="+alpha);
         Drawable drawable = mtitle_imgv.getDrawable();
         if (drawable == null) {
             return;
@@ -240,8 +216,10 @@ public class ColudActivity extends BaseActivity {
         if (scrolledY <= slidingDistance) {
             // title部分的渐变
             drawable.mutate().setAlpha((int) (alpha * 255));
+            Log.e(TAG, "scrollChangeHeader(if):(alpha * 255)= "+(alpha*255) );
             mtitle_imgv.setImageDrawable(drawable);
         } else {
+            Log.e(TAG, "scrollChangeHeader(else): alpha=255" );
             drawable.mutate().setAlpha(255);
             mtitle_imgv.setImageDrawable(drawable);
         }
