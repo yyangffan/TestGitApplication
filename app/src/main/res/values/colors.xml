@@ -6,4 +6,13 @@
     <!--设置这个来决定库中标题栏的颜色-->
     <color name="main_color">#2E80FD</color>
     <color name="pink">#FFB6C1</color>
+    <!-- new -->
+    <color name="c_333333">#333333</color>
+    <color name="c_d8d3cf">#f2f2f2</color>
+    <color name="white">#ffffff</color>
+    <color name="c_a59a93">#a59a93</color>
+    <!--pressed-->
+    <color name="c_b9afa9">#b9afa9</color>
+    <color name="c_c35b3a">#c35b3a</color>
+    <color name="c_9d472c">#9d472c</color>
 </resources>

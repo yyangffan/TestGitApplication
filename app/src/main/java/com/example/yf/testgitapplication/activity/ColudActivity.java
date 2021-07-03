@@ -66,7 +66,7 @@ public class ColudActivity extends BaseActivity {
 
     public void initEver() {
         mToolbar = (Toolbar) findViewById(R.id.tb_base_title);
-        mtitle_imgv = (ImageView) findViewById(R.id.iv_base_titlebar_bg);
+        mtitle_imgv = (ImageView) findViewById(R.id.homt_tv_bg);
         mHeander_imgv = (ImageView) findViewById(R.id.img_item_bg);
         mdetail_imgv = (ImageView) findViewById(R.id.iv_one_photo);
         RequestOptions requestOptions=new RequestOptions();

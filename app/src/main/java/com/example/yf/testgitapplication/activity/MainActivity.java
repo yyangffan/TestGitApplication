@@ -2,6 +2,7 @@ package com.example.yf.testgitapplication.activity;
 
 import android.Manifest;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +12,7 @@ import com.example.yf.testgitapplication.R;
 import com.example.yf.testgitapplication.adapter.MainRecyAdapter;
 import com.example.yf.testgitapplication.app.ui.guide.WelcomeActivity;
 import com.example.yf.testgitapplication.input.InputActivity;
+import com.example.yf.testgitapplication.input_two.InputtwoActivity;
 import com.example.yf.testgitapplication.new_another.ScrollingActivity;
 import com.example.yf.testgitapplication.oterh.MainTActivity;
 import com.example.yf.testgitapplication.pop_dialog.PopDigActivity;
@@ -41,7 +43,12 @@ public class MainActivity extends BaseActivity {
         if (!NotificationsUtils.isNotificationEnabled(this)) {
             NotificationsUtils.toConfigMsg(this);
         }else{
-            startService(new Intent(this,FrontPrintService.class));
+            Intent start=new Intent (this,FrontPrintService.class);
+            if(Build.VERSION.SDK_INT>=26){
+                startForegroundService (start);
+            }else{
+                startService (start);
+            }
         }
     }
 
@@ -71,8 +78,9 @@ public class MainActivity extends BaseActivity {
                     case 5: stActivity(PrintActivity.class);break;
                     case 6: rxPermissionTest();break;
                     case 7: stActivity(InputActivity.class);break;
-                    case 8: stActivity(PopDigActivity.class);break;
-                    case 9: stActivity(WelcomeActivity.class);break;
+                    case 8: stActivity(InputtwoActivity.class);break;
+                    case 9: stActivity(PopDigActivity.class);break;
+                    case 10: stActivity(WelcomeActivity.class);break;
                 }
             }
         });

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/android_mine.iml" filepath="$PROJECT_DIR$/android_mine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestGitApplication.iml" filepath="$PROJECT_DIR$/TestGitApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/customdatepicker/customdatepicker.iml" filepath="$PROJECT_DIR$/customdatepicker/customdatepicker.iml" />
       <module fileurl="file://$PROJECT_DIR$/picture_library/picture_library.iml" filepath="$PROJECT_DIR$/picture_library/picture_library.iml" />
